@@ -1,0 +1,15 @@
+name: Trigger Test Repository Workflow
+
+on: [push]
+
+jobs:
+  trigger_workflow:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger Test Repository Workflow
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.TEST_REPO_TOKEN }}
+          repository: Simeon-Zografov/test-repo
+          event-type: run_tests_command
